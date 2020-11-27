@@ -1,6 +1,17 @@
 #include "Train.h"
-#include <time.h>
-#include <ctime>
+#include <iostream>
+bool isDigit(const size_t& SIZE_, const string& string_) {
+	for (size_t i = 0; i < SIZE_; i++)
+	{
+		if (!isdigit(string_[i]))
+		{
+		}
+		else {
+			return true;
+		}
+	}
+	return false;
+}
 void Train::setNumber(const int& number)
 {
 	this->number = number;
@@ -11,7 +22,14 @@ void Train::setName(const string& name)
 	//не робив перевірку на цифри бо в назві поїдів є цифри
 	if (!name.empty())
 	{
-		this->name = name;
+		if (isDigit(name.length(),name))
+		{
+			this->name = name;
+		}
+		
+	}
+	else {
+		cout << "Eneter correct name" << endl;
 	}
 }
 
@@ -107,7 +125,6 @@ Train::Train()
 Train::Train(const int& size_)
 	:size(size_)
 {
-	srand(time(NULL));
 	number = 0;
 	name = "NoName";
 }

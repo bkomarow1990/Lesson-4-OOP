@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include <time.h>
 using namespace std;
 class Car
 {
@@ -13,7 +12,6 @@ public:
 	void print();
 	const string getTypeCar()const;
 	const size_t getCountPassengers()const;
-	void randomValuesCar();
 	Car();
 	Car(const int& type_car, const size_t& count_passengers);
 	Car(const Car& other);

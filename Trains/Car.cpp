@@ -1,7 +1,5 @@
 #include "Car.h"
-#include <time.h>
-#include <ctime>
-#include <windows.h>
+#include <iostream>
 void Car::setTypeCar(const int& type_car) 
 {
 	if (type_car <= 3 && type_car >= 0)
@@ -45,18 +43,11 @@ const size_t Car::getCountPassengers() const
 	return count_passengers;
 }
 
-void Car::randomValuesCar()
-{
-	setTypeCar(rand() % 3);
-	setCountPassengers((rand() % 20)+ 1);
-	//type_car = (Type_cars)(rand() % ((int)Type_cars::SLEEPING + 1));
-	//count_passengers = rand() % (maxPlaces[(int)type_car + 1] + 1);
-}
 
 Car::Car()
 {
 	type_car = (Type_cars)(rand() % ((int)Type_cars::SLEEPING + 1));
-	count_passengers = rand() % ((int)(maxPlaces[(int)type_car + 1] + 2));
+	count_passengers = rand() % ((int)maxPlaces[(int)type_car]) + 1;
 }
 
 Car::Car(const int& type_car, const size_t& count_passengers)
